@@ -1,0 +1,10 @@
+*~
+*.pyc
+*.pyo
+__pycache__/
+lektor_deferred_type.egg-info
+/dist/
+/build/
+
+/.tox/
+/htmlcov/
