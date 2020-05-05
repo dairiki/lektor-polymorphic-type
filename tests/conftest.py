@@ -15,7 +15,7 @@ def project(tmp_path_factory):
     [project]
     name = Test Project
     """)
-    return Project.from_file(project_file)
+    return Project.from_file(str(project_file))
 
 
 @pytest.fixture

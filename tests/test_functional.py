@@ -28,7 +28,7 @@ def demo_output(tmp_path_factory):
     env.plugin_controller.emit('setup-env')
 
     output_path = tmp_path_factory.mktemp('output')
-    builder = Builder(env.new_pad(), output_path)
+    builder = Builder(env.new_pad(), str(output_path))
     with CliReporter(env):
         failures = builder.build_all()
         assert failures == 0
