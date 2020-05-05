@@ -1,4 +1,4 @@
-include tox.ini LICENSE
+include tox.ini LICENSE CHANGES.md
 recursive-include tests *.py
 recursive-include tests/test-site *.lektorproject
 recursive-include tests/test-site *.lr *.ini *.html *.css
