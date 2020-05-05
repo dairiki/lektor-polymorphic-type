@@ -7,7 +7,7 @@ from lektor.builder import Builder
 from lektor.project import Project
 from lektor.reporter import CliReporter
 
-from lektor_deferred_type import DeferredTypePlugin
+from lektor_polymorphic_type import PolymorphicTypePlugin
 
 
 @pytest.fixture(scope='module')
@@ -23,8 +23,8 @@ def demo_output(tmp_path_factory):
 
     env = project.make_env(load_plugins=False)
     # Load our plugin
-    env.plugin_controller.instanciate_plugin('deferred-type',
-                                             DeferredTypePlugin)
+    env.plugin_controller.instanciate_plugin('polymorphic-type',
+                                             PolymorphicTypePlugin)
     env.plugin_controller.emit('setup-env')
 
     output_path = tmp_path_factory.mktemp('output')

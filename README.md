@@ -1,6 +1,6 @@
-# Lektor Deferred Type
+# Lektor Polymorphic Type
 
-This plugin adds a new polymorphic [lektor][] field type, `deferred`.
+This plugin adds a new polymorphic [lektor][] field type, `polymorphic`.
 The determination of the actual type implementation of the field value
 is deferred until evaluation time.
 
@@ -13,10 +13,10 @@ some other formatted type, such as [reStructuredText][rst].)
 
 ## Installation
 
-Add lektor-deferred-type to your project from command line:
+Add lektor-polymorphic-type to your project from command line:
 
 ```
-lektor plugins add lektor-deferred-type
+lektor plugins add lektor-polymorphic-type
 ```
 
 See [the Lektor plugin documentation][plugins] for more information.
@@ -25,11 +25,11 @@ See [the Lektor plugin documentation][plugins] for more information.
 
 ## How It Works
 
-If the field has a `deferred_type` option set, that value is evaluated
+If the field has a `polymorphic_type` option set, that value is evaluated
 and the result is interpreted as the name of the final type for the
 field.
 
-If no `deferred_type` option is set for the field, then we look for a
+If no `polymorphic_type` option is set for the field, then we look for a
 field on the current record whose name is name of the current field
 with “`_type`” appended.
 
@@ -52,7 +52,7 @@ type = string
 
 [fields.body]
 label = Body
-type = deferred
+type = polymorphic
 
 [fields.body_type]
 label = Body Type
@@ -67,7 +67,7 @@ determine whether the `body` field is interpreted as being `markdown`,
 
 ### Contrived Example
 
-Here is a contrived example showing the use of the `deferred_type` option:
+Here is a contrived example showing the use of the `polymorphic_type` option:
 
 ```ini
 # page.ini
@@ -82,8 +82,8 @@ type = string
 
 [fields.body]
 label = Body
-type = deferred
-deferred_type = 'html' if this.body.lstrip().startswith('<') else 'markdown'
+type = polymorphic
+polymorphic_type = 'html' if this.body.lstrip().startswith('<') else 'markdown'
 ```
 
 In this case, the `body` field will be interpreted as raw HTML if the

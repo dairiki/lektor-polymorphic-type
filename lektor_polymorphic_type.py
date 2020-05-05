@@ -10,16 +10,16 @@ class TypeResolutionFailed(Exception):
     pass
 
 
-class DeferredTypeDescriptor(object):
+class PolymorphicTypeDescriptor(object):
     def __init__(self, env, options, raw_value):
         self.env = env
         self.options = options
         self.raw_value = raw_value
 
     def get_type_name(self, this):
-        deferred_type_expr = self.options.get('deferred_type')
-        if deferred_type_expr:
-            expr = Expression(this.pad.env, deferred_type_expr)
+        polymorphic_type_expr = self.options.get('polymorphic_type')
+        if polymorphic_type_expr:
+            expr = Expression(this.pad.env, polymorphic_type_expr)
             type_name = expr.evaluate(this.pad, this, alt=this.alt)
             if jinja2.is_undefined(type_name):
                 raise TypeResolutionFailed(type_name._undefined_message)
@@ -52,16 +52,16 @@ class DeferredTypeDescriptor(object):
         return value
 
 
-class DeferredType(Type):
+class PolymorphicType(Type):
     widget = 'multiline-text'
 
     def value_from_raw(self, raw):
-        return DeferredTypeDescriptor(self.env, self.options, raw)
+        return PolymorphicTypeDescriptor(self.env, self.options, raw)
 
 
-class DeferredTypePlugin(Plugin):
-    name = "Deferred Type"
+class PolymorphicTypePlugin(Plugin):
+    name = "Polymorphic Type"
     description = "Defer determination of a field's type until evaluation time"
 
     def on_setup_env(self, **extra):
-        self.env.types['deferred'] = DeferredType
+        self.env.types['polymorphic'] = PolymorphicType
