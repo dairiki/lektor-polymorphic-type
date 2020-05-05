@@ -5,6 +5,7 @@ import pytest
 import jinja2
 from lektor.environment import PRIMARY_ALT
 from lektor.types import RawValue
+from markupsafe import escape
 
 from lektor_deferred_type import (
     DeferredTypeDescriptor,
@@ -74,7 +75,7 @@ class TestDeferredTypeDescriptor(object):
     @pytest.mark.usefixtures('ctx')
     def test_get(self, desc, page, model_data):
         value = desc.__get__(page)
-        assert 'my value' in str(value)
+        assert 'my value' in escape(value)
 
     @pytest.mark.parametrize("model_data", [
         {'myfield_type': 'badtype'},

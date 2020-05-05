@@ -11,7 +11,7 @@ from lektor.project import Project
 def project(tmp_path_factory):
     site_path = tmp_path_factory.mktemp('site')
     project_file = site_path / 'site.lektorproject'
-    project_file.write_text("""
+    project_file.write_text(u"""
     [project]
     name = Test Project
     """)
