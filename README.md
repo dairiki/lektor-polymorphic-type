@@ -1,5 +1,10 @@
 # Lektor Polymorphic Type
 
+[![PyPI version](https://img.shields.io/pypi/v/lektor-polymorphic-type.svg)](https://pypi.org/project/lektor-polymorphic-type/)
+[![PyPI Supported Python Versions](https://img.shields.io/pypi/pyversions/lektor-polymorphic-type.svg)](https://pypi.python.org/pypi/lektor-polymorphic-type/)
+[![GitHub license](https://img.shields.io/github/license/dairiki/lektor-polymorphic-type)](https://github.com/dairiki/lektor-polymorphic-type/blob/master/LICENSE)
+[![GitHub Actions (Tests)](https://github.com/dairiki/lektor-polymorphic-type/workflows/Tests/badge.svg)](https://github.com/dairiki/lektor-polymorphic-type)
+
 This plugin adds a new polymorphic [lektor][] field type, `polymorphic`.
 The determination of the actual type implementation of the field value
 is deferred until evaluation time.
