@@ -1,0 +1,5 @@
+include tox.ini LICENSE
+recursive-include tests *.py
+recursive-include tests/test-site *.lektorproject
+recursive-include tests/test-site *.lr *.ini *.html *.css
+exclude .gitignore
