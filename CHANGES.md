@@ -2,7 +2,9 @@
 
 ### Next Release
 
-Test under python 3.10 and lektor<3.2.
+- Drop support for python 2.7 and 3.6.
+- Drop support for Lektor 3.2.
+- Test under python 3.7-3.11 and lektor 3.3–3.4.
 
 ### 0.1 — 2021-02-05
 
