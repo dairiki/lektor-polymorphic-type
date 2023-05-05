@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 import jinja2
@@ -38,7 +36,7 @@ def model_data():
         }
 
 
-class TestPolymorphicTypeDescriptor(object):
+class TestPolymorphicTypeDescriptor:
     @pytest.fixture
     def desc(self, env, options, raw_value):
         return PolymorphicTypeDescriptor(env, options, raw_value)
@@ -86,7 +84,7 @@ class TestPolymorphicTypeDescriptor(object):
         assert jinja2.is_undefined(value)
 
 
-class TestPolymorphicType(object):
+class TestPolymorphicType:
     @pytest.fixture
     def polymorphic_type(self, env, options):
         return PolymorphicType(env, options)
@@ -97,7 +95,7 @@ class TestPolymorphicType(object):
         assert value.raw_value is raw_value
 
 
-class TestPolymorphicTypePlugin(object):
+class TestPolymorphicTypePlugin:
 
     @pytest.fixture
     def plugin(self, env):

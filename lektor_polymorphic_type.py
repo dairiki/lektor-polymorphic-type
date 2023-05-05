@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import jinja2
 from lektor.environment import Expression
 from lektor.pluginsystem import Plugin
@@ -10,7 +8,7 @@ class TypeResolutionFailed(Exception):
     pass
 
 
-class PolymorphicTypeDescriptor(object):
+class PolymorphicTypeDescriptor:
     def __init__(self, env, options, raw_value):
         self.env = env
         self.options = options
